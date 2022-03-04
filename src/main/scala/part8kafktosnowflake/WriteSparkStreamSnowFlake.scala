@@ -1,5 +1,5 @@
-package part2dataframes
-import org.apache.spark.sql.functions._
+package part8kafktosnowflake
+
 import org.apache.spark.sql.SparkSession
 
 object WriteSparkStreamSnowFlake  extends App {

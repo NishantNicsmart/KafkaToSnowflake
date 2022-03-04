@@ -1,9 +1,8 @@
-package part2dataframes
+package part8kafktosnowflake
 
 import java.sql.DriverManager
 
-import org.apache.spark.sql.{SaveMode, SparkSession}
-import part2dataframes.DataSources.{driver, password, url, user}
+import org.apache.spark.sql.SparkSession
 
 object WriteEmpDataFrameToSnowflake extends App {
 
@@ -85,4 +84,3 @@ object WriteEmpDataFrameToSnowflake extends App {
   connection.close()
 
 }
-
