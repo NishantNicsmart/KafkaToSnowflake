@@ -43,7 +43,7 @@ object WriteFromKafkaToSnowflake extends App {
     "sfWarehouse" -> "SPARKWH2"
   )
 
-  def writeToKafka (df: DataFrame, batchId: Long) = {
+  def writeToSnowflake (df: DataFrame, batchId: Long) = {
     df.toDF().show(false)
     df.toDF().write
       .format(SNOWFLAKE_SOURCE_NAME)
@@ -54,7 +54,7 @@ object WriteFromKafkaToSnowflake extends App {
   }
 
   stream.writeStream.trigger(Trigger.ProcessingTime("30 seconds"))
-    .foreachBatch(writeToKafka _)
+    .foreachBatch(writeToSnowflake _)
     .start()
     .awaitTermination()
 
